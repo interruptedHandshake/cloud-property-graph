@@ -22,7 +22,6 @@ import io.clouditor.graph.passes.js.FetchPass
 import io.clouditor.graph.passes.js.JSHttpPass
 import io.clouditor.graph.passes.python.*
 import io.clouditor.graph.passes.ruby.WebBrickPass
-import io.clouditor.graph.testing.LocalTestingPass
 import java.nio.file.Path
 import java.util.concurrent.Callable
 import kotlin.system.exitProcess
@@ -155,7 +154,7 @@ object App : Callable<Int> {
                     if (localMode) {
                         // register the localTestingPass after the HTTP Passes since it needs HTTP
                         // request handlers
-                        registerPass(LocalTestingPass())
+                        // registerPass(LocalTestingPass())
                         registerPass(GolangHttpRequestPass())
                     } else {
                         registerPass(AzurePass())
